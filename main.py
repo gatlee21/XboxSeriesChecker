@@ -6,6 +6,9 @@ from datetime import datetime
 def msft_xbox_check(txt, label):
     return txt == 'Out of stock' and label == 'Checkout bundle'
 
+Red = '\033[91m'
+Endc = '\033[0m'
+
 result = requests.get("https://www.xbox.com/en-us/configure/8wj714n3rbtl")
 msft_xbox_website = result.content
 
@@ -18,6 +21,6 @@ for button in buttons:
     if msft_xbox_check(btn_txt, aria_label) == True:
         now = datetime.now()
         current_time = now.strftime("%I:%M %p")
-        print('Microsoft Store : Xbox Series X 1TB %20s %10s' % ('Out of stock', current_time))
+        print('Microsoft Store : Xbox Series X 1TB %26s %10s' % (f'{Red} Out of stock {Endc}', current_time))
         break
 
