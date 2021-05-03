@@ -21,6 +21,8 @@ for button in buttons:
     if msft_xbox_check(btn_txt, aria_label) == True:
         now = datetime.now()
         current_time = now.strftime("%I:%M %p")
-        print('Microsoft Store : Xbox Series X 1TB %26s %10s' % (f'{Red} Out of stock {Endc}', current_time))
+        print('') #padding
+        print('Microsoft Store : Xbox Series X 1TB {:>26} {:>10}'.format(f'{Red} Out of stock {Endc}', current_time))
+        print('') #padding
         break
 
