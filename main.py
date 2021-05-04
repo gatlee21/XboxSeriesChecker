@@ -9,15 +9,21 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from twilio.rest import Client
 from  msft import msft
+from bbuy import bbuy
 
 #Twilio setup
 account_sid = 'ACac6e9a6d3094bf5004a12c8455b4f1b3'
 auth_token = 'f391f902c9d6714f2cc3a60f62f35ebd'
 client = Client(account_sid, auth_token)
 
+#search Microsoft store
 msft = msft(requests, BeautifulSoup, datetime, client)
 X_msg = msft.xbox_series_X()
 S_msg = msft.xbox_series_S()
+
+#search Best Buy
+# bbuy = bbuy(requests, BeautifulSoup, datetime, client)
+# bbuy_X_msg = bbuy.xbox_series_X()
 
 #send twilio text msg - comment out for debugging
 # message = client.messages \
